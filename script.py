@@ -33,7 +33,6 @@ except ImportError:
         EMAIL_USE_TLS = None
 
 logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
-logger = logging.getLogger(__name__)
 
 
 subject = "An email with attachment from Python"
@@ -76,7 +75,7 @@ text = message.as_string()
 # Log in to server using secure context and send email
 context = None
 if EMAIL_USE_TLS:
-    logger.debug("Using TLS")
+    logging.debug("Using TLS")
     context = ssl.create_default_context()
 
 with smtplib.SMTP(EMAIL_HOST, EMAIL_PORT) as server:
